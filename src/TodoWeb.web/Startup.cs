@@ -25,8 +25,23 @@ namespace TodoWeb.web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContextPool<AuthenticationDbContext>(
-                options => options.UseSqlServer(Configuration.GetConnectionString("AuthenticationConnection")));
+           services.AddDbContextPool<AuthenticationDbContext>(
+                options => options.UseSqlServer(Configuration.GetConnectionString("AuthenticationConnection"),
+
+                sqlServerOptions => {
+                    sqlServerOptions.MigrationsAssembly("TodoWeb.data");
+                }
+                
+            ));
+
+            services.AddDbContextPool<ApplicationDbContext>(options => 
+                options.UseSqlServer(Configuration.GetConnectionString("ApplicationConnection"),
+                
+                sqlServerOptions => {
+                    sqlServerOptions.MigrationsAssembly("TodoWeb.data");
+                }
+            ));
+
             services.AddControllersWithViews();
         }
 
