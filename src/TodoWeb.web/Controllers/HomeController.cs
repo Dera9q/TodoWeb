@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using TodoWeb.Models;
+using TodoWeb.web.Models;
 
-namespace TodoWeb.Controllers
+namespace TodoWeb.web.Controllers
 {
     public class HomeController : Controller
     {
