@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Todoweb.data.DatabaseContext;
 using Todoweb.data.Entities;
+using TodoWeb.web.Interfaces;
+using TodoWeb.web.Services;
 
 namespace TodoWeb.web
 {
@@ -60,6 +62,7 @@ namespace TodoWeb.web
             });
 
             services.AddControllersWithViews();
+            services.AddTransient<IAccountService, AccountService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -79,6 +82,8 @@ namespace TodoWeb.web
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
