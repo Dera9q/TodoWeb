@@ -1,0 +1,36 @@
+@model TodoWeb.web.Models.TodolistModel
+@{
+
+}
+<div class="addlist-area" style="background-color: rgb(249, 249, 249);">
+    <div class="container">
+
+        <div class="col-md-6">
+            <div class="box-for overflow">
+                <div class="col-md-12 col-xs-12 register-blocks">
+                    <h2>Create 2do List : </h2>
+                    <form asp-action="Add" method="post">
+                        <div class="form-group">
+                            <label asp-for="Title">Title</label>
+                            <input type="text" class="form-control" asp-for="Title">
+                        </div>  
+                        <div class="form-group">
+                            <label asp-for="DueDate">Due Date</label>
+                            <input type="datetime" class="form-control" asp-for="DueDate">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Status">Status</label>
+                            <input type="text" class="form-control" asp-for="Status">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-default">Create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
