@@ -8,6 +8,6 @@ namespace TodoWeb.web.Interfaces
     public interface ITodolistService
     {
          Task AddTodolist(TodolistModel model);
-         IEnumerable<Todolist> GetAllTodolist();
+         IEnumerable<Todolist> GetTodolist();
     }
 }

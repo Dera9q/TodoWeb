@@ -17,7 +17,7 @@ namespace TodoWeb.web.Services
             _dbContext = dbContext;
         }
 
-        public IEnumerable<Todolist> GetAllTodolist()
+        public IEnumerable<Todolist> GetTodolist()
         {
             return _dbContext.Todolist;
             

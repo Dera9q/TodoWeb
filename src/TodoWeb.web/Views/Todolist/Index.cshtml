@@ -1,3 +1,14 @@
+@model IEnumerable<Todoweb.data.Entities.Todolist>
+    <style>
+         table,
+         td,
+         th {
+             border: 1px solid black;
+             border-collapse: collapse;
+             padding: 5px;
+         }
+    </style>
+    
 <main id="main">
     <caption>Your 2do List <a href="Todolist/Add">[Create List]</a></caption>
     <table>
@@ -11,49 +22,19 @@
             </tr>
         </thead>
 
-        <tbody>
+@if(Model is object)
+ {
+   @foreach (var todolist in Model)
+     {
+       <tbody>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>@todolist.Title</td>
+                <td>@todolist.DueDate</td>
+                <td>@todolist.Status</td>
+                <td> <a href = "Add"> edit </a> </td>
             </tr>
         </tbody>
+     }
+ }
     </table>
 </main>

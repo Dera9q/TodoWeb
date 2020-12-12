@@ -8,6 +8,7 @@ using TodoWeb.web.Services;
 
 namespace TodoWeb.web.Controllers
 {
+    [Authorize]
     public class TodolistController : Controller
     {
        private readonly ITodolistService _todolistService;
@@ -16,11 +17,10 @@ namespace TodoWeb.web.Controllers
             _todolistService = todolistService;
         }
 
-        [AllowAnonymous]
         [HttpGet]
         public IActionResult Index()
         {
-            var todolist = _todolistService.GetAllTodolist();
+            var todolist = _todolistService.GetTodolist();
             return View(todolist);
         }
 
